@@ -1,80 +1,77 @@
-class Product {
-    constructor({ title, description, price, thumbnail, code, stock }) {
-        this.id = '_' + Math.random().toString(36).substr(2, 9);
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.thumbnail = thumbnail;
-        this.code = code;
-        this.stock = stock;
-    }
-}
+const fs = require('fs').promises;
+const path = require('path');
 
 class ProductManager {
-    constructor() {
-        this.products = [];
+    constructor(filePath) {
+        this.filePath = filePath;
     }
 
-    addProduct(productDetails) {
-        const existingProduct = this.products.find(product => product.code === productDetails.code);
-        if (existingProduct) {
-            throw new Error('Error: Ya existe un producto con el mismo código');
-        }
-        
-        const newProduct = new Product(productDetails);
-        this.products.push(newProduct);
-    }
-
-    getProductById(productId) {
-        const product = this.products.find(product => product.id === productId);
-        if (!product) {
-            throw new Error('Producto no encontrado');
-        }
-        return product;
-    }
-
-    updateProduct(productId, updatedFields) {
-        const product = this.getProductById(productId);
-        Object.assign(product, updatedFields);
-    }
-
-    deleteProduct(productId) {
-        const index = this.products.findIndex(product => product.id === productId);
-        if (index !== -1) {
-            this.products.splice(index, 1);
-        } else {
-            throw new Error('Producto no encontrado, no se puede eliminar.');
+    async addProduct(product) {
+        try {
+            const products = await this.getProducts();
+            const lastProductId = products.length > 0 ? products[products.length - 1].id : 0;
+            product.id = lastProductId + 1;
+            products.push(product);
+            await this.saveProducts(products);
+            return product.id;
+        } catch (error) {
+            console.error('Error adding product:', error);
+            throw error;
         }
     }
 
-    getProducts() {
-        return this.products;
+    async getProducts() {
+        try {
+            const data = await fs.readFile(this.filePath, 'utf-8');
+            return JSON.parse(data);
+        } catch (error) {
+            if (error.code === 'ENOENT') {
+                return [];
+            }
+            throw error;
+        }
+    }
+
+    async getProductById(id) {
+        const products = await this.getProducts();
+        return products.find(product => product.id === id);
+    }
+
+    async updateProduct(id, updatedFields) {
+        try {
+            let products = await this.getProducts();
+            const index = products.findIndex(product => product.id === id);
+            if (index !== -1) {
+                products[index] = { ...products[index], ...updatedFields };
+                await this.saveProducts(products);
+                return true;
+            }
+            return false;
+        } catch (error) {
+            console.error('Error updating product:', error);
+            throw error;
+        }
+    }
+
+    async deleteProduct(id) {
+        try {
+            let products = await this.getProducts();
+            products = products.filter(product => product.id !== id);
+            await this.saveProducts(products);
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            throw error;
+        }
+    }
+
+    async saveProducts(products) {
+        try {
+            await fs.writeFile(this.filePath, JSON.stringify(products, null, 2));
+        } catch (error) {
+            console.error('Error saving products:', error);
+            throw error;
+        }
     }
 }
 
-const productManager = new ProductManager();
-
-productManager.addProduct({
-    title: 'Laptop HP Envy 15',
-    description: 'Laptop ultradelgada con pantalla táctil y procesador Intel Core i7.',
-    price: 1200,
-    thumbnail: 'laptop.jpg',
-    code: 'hp001',
-    stock: 10
-});
-
-productManager.addProduct({
-    title: 'PC Gamer Alienware Aurora R10',
-    description: 'Potente PC de escritorio diseñado para juegos de alta gama con Ryzen 9 y RTX 3080.',
-    price: 2500,
-    thumbnail: 'pc_gamer.jpg',
-    code: 'awr10',
-    stock: 5
-});
-
-console.log(productManager.getProducts());
-
-productManager.deleteProduct(productManager.getProducts()[0].id);
-console.log(productManager.getProducts());
-
-
+module.exports = ProductManager;
