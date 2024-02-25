@@ -50,3 +50,17 @@ Utilizaré este README para documentar cada paso y desafío que aborde en el cur
 ### Formato del entregable
 
 ✅ Archivo de JavaScript listo para ejecutarse desde Node.js.
+
+## 🛠️ Herramientas Utilizadas
+
+Durante el desarrollo de este proyecto, he empleado una variedad de herramientas poderosas que nos han ayudado a construir y mantener nuestro código:
+
+- **Node.js**: Plataforma de ejecución de JavaScript que nos permite construir aplicaciones del lado del servidor de manera eficiente y escalable. 🔵
+
+- **ECMAScript 6 (ES6)**: La última versión del estándar ECMAScript que nos proporciona características avanzadas y una sintaxis más limpia para escribir nuestro código JavaScript. 🔥
+
+- **Visual Studio Code**: Un editor de código fuente altamente personalizable y repleto de funciones que nos ha brindado un entorno de desarrollo productivo y agradable. 💻
+
+- **Git y GitHub**: Git, un sistema de control de versiones distribuido, junto con GitHub, una plataforma de alojamiento de código, han sido fundamentales para gestionar nuestro código, colaborar con otros desarrolladores y realizar un seguimiento de los cambios en nuestro proyecto. 🐙
+
+- **ESLint**: Una herramienta de linting para JavaScript que nos ayuda a mantener nuestro código consistente y libre de errores. 🧹
