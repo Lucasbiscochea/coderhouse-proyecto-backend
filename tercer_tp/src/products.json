@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "title": "Limpieza de laptop",
+      "description": "Servicio de limpieza profunda para laptops",
+      "price": 50.00,
+      "thumbnail": "limpieza_laptop.jpg",
+      "code": "LMPLPT001",
+      "stock": 20
+    },
+    {
+      "id": 2,
+      "title": "Mantenimiento de software",
+      "description": "Revisión y actualización de software para sistemas operativos",
+      "price": 80.00,
+      "thumbnail": "mantenimiento_software.jpg",
+      "code": "MTTNSFT002",
+      "stock": 15
+    },
+    {
+      "id": 3,
+      "title": "Reparación de PC",
+      "description": "Servicio de reparación de PC para problemas de hardware y software",
+      "price": 100.00,
+      "thumbnail": "reparacion_pc.jpg",
+      "code": "RPRTNPC003",
+      "stock": 12
+    },
+    {
+      "id": 4,
+      "title": "Optimización de sistema operativo",
+      "description": "Optimización y ajuste fino del sistema operativo para mejorar el rendimiento",
+      "price": 70.00,
+      "thumbnail": "optimizacion_so.jpg",
+      "code": "OPTMSO004",
+      "stock": 18
+    },
+    {
+      "id": 5,
+      "title": "Instalación de antivirus",
+      "description": "Instalación y configuración de software antivirus para protección contra amenazas",
+      "price": 40.00,
+      "thumbnail": "antivirus.jpg",
+      "code": "INSTAV005",
+      "stock": 25
+    },
+    {
+      "id": 6,
+      "title": "Limpieza de componentes internos de PC",
+      "description": "Limpieza y mantenimiento de los componentes internos de la PC",
+      "price": 60.00,
+      "thumbnail": "limpieza_componentes_pc.jpg",
+      "code": "LMPZPC006",
+      "stock": 10
+    },
+    {
+      "id": 7,
+      "title": "Instalación de programas",
+      "description": "Instalación y configuración de programas según las necesidades del cliente",
+      "price": 50.00,
+      "thumbnail": "instalacion_programas.jpg",
+      "code": "INSTPRG007",
+      "stock": 20
+    },
+    {
+      "id": 8,
+      "title": "Reparación de periféricos",
+      "description": "Reparación de periféricos como teclados, ratones, y cámaras web",
+      "price": 45.00,
+      "thumbnail": "reparacion_perifericos.jpg",
+      "code": "RPRTPRF008",
+      "stock": 15
+    },
+    {
+      "id": 9,
+      "title": "Mantenimiento preventivo",
+      "description": "Revisión y mantenimiento preventivo para evitar problemas futuros",
+      "price": 90.00,
+      "thumbnail": "mantenimiento_preventivo.jpg",
+      "code": "MTTNTPR009",
+      "stock": 8
+    },
+    {
+      "id": 10,
+      "title": "Actualización de hardware",
+      "description": "Actualización de componentes de hardware para mejorar el rendimiento",
+      "price": 120.00,
+      "thumbnail": "actualizacion_hardware.jpg",
+      "code": "ACTLZHWR010",
+      "stock": 12
+    }
+  ]
+  
