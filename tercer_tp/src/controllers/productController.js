@@ -1,4 +1,4 @@
-// controllers/productController.js
+
 const ProductManager = require('../models/ProductManager.js');
 const productManager = new ProductManager('./src/products.json');
 
