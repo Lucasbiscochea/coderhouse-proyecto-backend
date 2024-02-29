@@ -1,4 +1,4 @@
-// models/ProductManager.js
+
 const fs = require('fs').promises;
 
 class ProductManager {
