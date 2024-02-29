@@ -32,7 +32,7 @@ exports.getProductById = async (req, res, next) => {
 
 exports.addProduct = async (req, res, next) => {
   try {
-    const newProduct = req.body; // Suponiendo que los datos del nuevo producto se envían en el cuerpo de la solicitud
+    const newProduct = req.body; 
     const product = await productManager.addProduct(newProduct);
     res.status(201).json(product);
   } catch (error) {
@@ -44,7 +44,7 @@ exports.deleteProduct = async (req, res, next) => {
   try {
     const productId = parseInt(req.params.pid);
     await productManager.deleteProduct(productId);
-    res.status(204).send(); // Sin contenido en la respuesta
+    res.status(204).send();
   } catch (error) {
     res.status(500).json({ error: 'Error al eliminar el producto' });
   }
@@ -53,7 +53,7 @@ exports.deleteProduct = async (req, res, next) => {
 exports.updateProduct = async (req, res, next) => {
   try {
     const productId = parseInt(req.params.pid);
-    const updatedProduct = req.body; // Suponiendo que los datos actualizados del producto se envían en el cuerpo de la solicitud
+    const updatedProduct = req.body; 
     await productManager.updateProduct(productId, updatedProduct);
     res.status(200).json(updatedProduct);
   } catch (error) {
